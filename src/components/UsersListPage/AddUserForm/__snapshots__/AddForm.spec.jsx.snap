@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LogInForm should render properly 1`] = `
+AddForm {
+  "context": Object {},
+  "keydown": [Function],
+  "props": Object {
+    "classes": Object {
+      "input": "AddForm-input-2",
+      "root": "AddForm-root-1",
+    },
+    "onUserAdd": [MockFunction],
+  },
+  "refs": Object {},
+  "setState": [Function],
+  "state": Object {
+    "password": "",
+    "userEmail": "",
+    "userName": "",
+  },
+  "updater": Updater {
+    "_callbacks": Array [],
+    "_renderer": ReactShallowRenderer {
+      "_context": Object {},
+      "_didScheduleRenderPhaseUpdate": false,
+      "_dispatcher": Object {
+        "readContext": [Function],
+        "useCallback": [Function],
+        "useContext": [Function],
+        "useDebugValue": [Function],
+        "useEffect": [Function],
+        "useImperativeHandle": [Function],
+        "useLayoutEffect": [Function],
+        "useMemo": [Function],
+        "useReducer": [Function],
+        "useRef": [Function],
+        "useState": [Function],
+      },
+      "_element": <AddForm
+        classes={
+          Object {
+            "input": "AddForm-input-2",
+            "root": "AddForm-root-1",
+          }
+        }
+        onUserAdd={[MockFunction]}
+      />,
+      "_firstWorkInProgressHook": null,
+      "_forcedUpdate": false,
+      "_instance": [Circular],
+      "_isReRender": false,
+      "_newState": null,
+      "_numberOfReRenders": 0,
+      "_renderPhaseUpdates": null,
+      "_rendered": <div
+        className="AddForm-root-1"
+      >
+        <TextField
+          className="AddForm-input-2"
+          label="Name"
+          onChange={[Function]}
+          required={false}
+          select={false}
+          type="text"
+          variant="standard"
+        />
+        <TextField
+          className="AddForm-input-2"
+          label="Email"
+          onChange={[Function]}
+          required={false}
+          select={false}
+          type="text"
+          variant="standard"
+        />
+        <TextField
+          className="AddForm-input-2"
+          label="Password"
+          onChange={[Function]}
+          required={false}
+          select={false}
+          type="password"
+          variant="standard"
+        />
+        <WithStyles(WithStyles(Button))
+          color="primary"
+          onClick={[Function]}
+          variant="contained"
+        >
+          Add user
+        </WithStyles(WithStyles(Button))>
+      </div>,
+      "_rendering": false,
+      "_updater": [Circular],
+      "_workInProgressHook": null,
+    },
+  },
+  Symbol(enzyme.__setState__): [Function],
+}
+`;

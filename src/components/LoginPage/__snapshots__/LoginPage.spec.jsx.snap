@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LogInForm should render properly 1`] = `
+LogInPage {
+  "context": Object {},
+  "props": Object {
+    "classes": Object {
+      "header": "LogInPage-header-2",
+      "root": "LogInPage-root-1",
+      "wrongCreds": "LogInPage-wrongCreds-3",
+    },
+    "history": Object {
+      "push": [MockFunction],
+    },
+  },
+  "refs": Object {},
+  "setState": [Function],
+  "signIn": [Function],
+  "state": null,
+  "updater": Updater {
+    "_callbacks": Array [],
+    "_renderer": ReactShallowRenderer {
+      "_context": Object {},
+      "_didScheduleRenderPhaseUpdate": false,
+      "_dispatcher": Object {
+        "readContext": [Function],
+        "useCallback": [Function],
+        "useContext": [Function],
+        "useDebugValue": [Function],
+        "useEffect": [Function],
+        "useImperativeHandle": [Function],
+        "useLayoutEffect": [Function],
+        "useMemo": [Function],
+        "useReducer": [Function],
+        "useRef": [Function],
+        "useState": [Function],
+      },
+      "_element": <LogInPage
+        classes={
+          Object {
+            "header": "LogInPage-header-2",
+            "root": "LogInPage-root-1",
+            "wrongCreds": "LogInPage-wrongCreds-3",
+          }
+        }
+        history={
+          Object {
+            "push": [MockFunction],
+          }
+        }
+      />,
+      "_firstWorkInProgressHook": null,
+      "_forcedUpdate": false,
+      "_instance": [Circular],
+      "_isReRender": false,
+      "_newState": null,
+      "_numberOfReRenders": 0,
+      "_renderPhaseUpdates": null,
+      "_rendered": <div
+        className="LogInPage-root-1"
+      >
+        <p
+          className="LogInPage-header-2"
+        >
+           Welcome to my test app 
+        </p>
+        <WithStyles(LogInForm)
+          onSignIn={[Function]}
+        />
+        <p
+          className="LogInPage-wrongCreds-3"
+          id="errorMessage"
+        >
+           Email or password is incorrect 
+        </p>
+      </div>,
+      "_rendering": false,
+      "_updater": [Circular],
+      "_workInProgressHook": null,
+    },
+  },
+  Symbol(enzyme.__setState__): [Function],
+}
+`;

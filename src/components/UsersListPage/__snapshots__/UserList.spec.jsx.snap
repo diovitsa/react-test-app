@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LogInForm should render properly 1`] = `
+ListOfUsers {
+  "actions": Array [
+    GridAction {
+      "action": [Function],
+      "id": "delete",
+      "title": "Delete user",
+    },
+  ],
+  "addUser": [Function],
+  "context": Object {},
+  "loadData": [Function],
+  "logOut": [Function],
+  "props": Object {
+    "classes": Object {
+      "upperBlock": "ListOfUsers-upperBlock-1",
+    },
+    "history": Object {
+      "push": [MockFunction],
+    },
+  },
+  "refs": Object {},
+  "setState": [Function],
+  "state": Object {
+    "users": Array [],
+  },
+  "triggerAction": [Function],
+  "updater": Updater {
+    "_callbacks": Array [],
+    "_renderer": ReactShallowRenderer {
+      "_context": Object {},
+      "_didScheduleRenderPhaseUpdate": false,
+      "_dispatcher": Object {
+        "readContext": [Function],
+        "useCallback": [Function],
+        "useContext": [Function],
+        "useDebugValue": [Function],
+        "useEffect": [Function],
+        "useImperativeHandle": [Function],
+        "useLayoutEffect": [Function],
+        "useMemo": [Function],
+        "useReducer": [Function],
+        "useRef": [Function],
+        "useState": [Function],
+      },
+      "_element": <ListOfUsers
+        classes={
+          Object {
+            "upperBlock": "ListOfUsers-upperBlock-1",
+          }
+        }
+        history={
+          Object {
+            "push": [MockFunction],
+          }
+        }
+      />,
+      "_firstWorkInProgressHook": null,
+      "_forcedUpdate": false,
+      "_instance": [Circular],
+      "_isReRender": false,
+      "_newState": null,
+      "_numberOfReRenders": 0,
+      "_renderPhaseUpdates": null,
+      "_rendered": <div>
+        <div
+          className="ListOfUsers-upperBlock-1"
+        >
+          <WithStyles(AddForm)
+            onUserAdd={[Function]}
+          />
+          <WithStyles(WithStyles(Button))
+            color="secondary"
+            onClick={[Function]}
+            variant="contained"
+          >
+            Log Out
+          </WithStyles(WithStyles(Button))>
+        </div>
+        <Grid
+          actions={
+            Array [
+              GridAction {
+                "action": [Function],
+                "id": "delete",
+                "title": "Delete user",
+              },
+            ]
+          }
+          data={Array []}
+          onAction={[Function]}
+          selectedItems={Array []}
+        />
+      </div>,
+      "_rendering": false,
+      "_updater": [Circular],
+      "_workInProgressHook": null,
+    },
+  },
+  Symbol(enzyme.__setState__): [Function],
+}
+`;
