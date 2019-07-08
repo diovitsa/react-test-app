@@ -50,18 +50,6 @@ describe('LogInForm', () => {
         });
       });
     });
-
-    describe('on failure', () => {
-
-      beforeEach(() => {
-        jest.spyOn(DataService, 'getUsersList').mockImplementation(() => Promise.reject({ error: 'ErrorMassage' }));
-        component.loadData();
-      });
-
-      it('should redirect user to logIn page', () => {
-        expect(component.props.history.push).toHaveBeenCalledWith('/');
-      });
-    });
   });
 
   describe('componentWillMount', () => {

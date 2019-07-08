@@ -6,6 +6,7 @@ import { GridAction } from './Grid/grid-action.entity';
 import AddForm from './AddUserForm/AddForm';
 import { DataService } from '../../services/data/DataService';
 import Button from '@material-ui/core/Button/index';
+import { connect } from 'react-redux';
 
 const CustomizedButton = withStyles(ButtonStyles)(Button);
 
@@ -62,4 +63,17 @@ class ListOfUsers extends React.Component {
   }
 }
 
-export default withStyles(ListOfUsersStyles)(ListOfUsers);
+export default connect(
+  state => ({
+    users: state.users
+  }),
+  dispatch => ({
+    onAddTrack: (name) => {
+      const payload = {
+        id: Date.now().toString(),
+        name
+      };
+      dispatch({ type: 'ADD_TRACK', payload: payload });
+    },
+  })
+)(withStyles(ListOfUsersStyles)(ListOfUsers));

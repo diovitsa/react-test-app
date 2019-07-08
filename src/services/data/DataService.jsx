@@ -49,5 +49,3 @@ class DataServiceClass {
 }
 
 export const DataService = new DataServiceClass(HttpService);
-
-

@@ -22,4 +22,3 @@ export const removeLocalItem = (key) => {
   const localStorage = _getLocalStorage();
   localStorage && localStorage.removeItem(key);
 };
-
