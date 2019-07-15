@@ -4,6 +4,9 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import TextField from '@material-ui/core/TextField';
 import { ButtonStyles } from './styles';
 import Button from '@material-ui/core/Button/index';
+import { connect } from 'react-redux';
+import { addUser } from '../../../actions/users';
+import { updateUserForm } from '../../../actions/addUserForm';
 
 const CustomizedButton = withStyles(ButtonStyles)(Button);
 
@@ -11,9 +14,11 @@ const CustomizedButton = withStyles(ButtonStyles)(Button);
 class AddForm extends React.Component {
 
   state = {
-    userName: '',
-    userEmail: '',
-    password: '',
+    addUserForm: {
+      name: '',
+      email: '',
+      password: '',
+    }
   };
 
   componentDidMount() {
@@ -30,47 +35,50 @@ class AddForm extends React.Component {
     }
   };
 
-  nameInputHandler(e) {
-    this.nameInput = e.target;
-    this.setState({ userName: e.target.value });
+  inputHandler(e) {
+    this[e.target.id] = e.target;
+    this.props.onFormUpdate({ value: e.target.value, id: [e.target.id] });
   };
-
-  emailInputHandler(e) {
-    this.emailInput = e.target;
-    this.setState({ userEmail: e.target.value });
-  };
-
-  passwordInputHandler(e) {
-    this.passwordInput = e.target;
-    this.setState({ password: e.target.value });
-  }
 
   clearInputValues() {
-    if (this.nameInput && this.emailInput && this.passwordInput) {
-      this.nameInput.value = '';
-      this.emailInput.value = '';
-      this.passwordInput.value = '';
+    if (this.name && this.email && this.password) {
+      this.name.value = '';
+      this.email.value = '';
+      this.password.value = '';
     }
   }
 
   addUser() {
-    const { userName, userEmail, password } = this.state;
+    const { name, email, password } = this.props.addUserForm;
 
     this.clearInputValues();
-    this.props.onUserAdd({ 'password': password, 'email': userEmail, 'name': userName });
+    this.props.onUserAdd({ 'password': password, 'email': email, 'name': name });
   }
 
   render() {
     const { root, input } = this.props.classes;
     return (
       <div className={root}>
-        <TextField className={input} label='Name' type="text" onChange={(e) => this.nameInputHandler(e)}/>
-        <TextField className={input} label="Email" type="text" onChange={(e) => this.emailInputHandler(e)}/>
-        <TextField className={input} label="Password" type="password" onChange={(e) => this.passwordInputHandler(e)}/>
+        <TextField className={input} id='name' label='Name' type="text" onChange={(e) => this.inputHandler(e)}/>
+        <TextField className={input} id='email' label="Email" type="text" onChange={(e) => this.inputHandler(e)}/>
+        <TextField className={input} id='password' label="Password" type="password" onChange={(e) => this.inputHandler(e)}/>
         <CustomizedButton onClick={() => this.addUser()} variant="contained" color="primary">Add user</CustomizedButton>
       </div>
     );
   }
 }
 
-export default withStyles(AddFormStyles)(AddForm);
+export default connect(
+  state => ({
+    users: state.users,
+    addUserForm: state.addUserForm
+  }),
+  dispatch => ({
+    onUserAdd: (newUser) => {
+      dispatch(addUser(newUser));
+    },
+    onFormUpdate: (updatedInput) => {
+      dispatch(updateUserForm(updatedInput));
+    }
+  })
+)(withStyles(AddFormStyles)(AddForm));

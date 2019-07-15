@@ -56,9 +56,9 @@ class LogInForm extends React.Component {
     const { root } = this.props.classes;
     return (
       <div className={root}>
-        <TextField label="Email" type="email" onChange={(e) => this.emailInputHandler(e)}/>
-        <TextField label="Password" type="password" onChange={(e) => this.passwordInputHandler(e)}/>
-        <CustomizedButton onClick={() => this.signIn()} variant="contained" color="primary"> Sign In</CustomizedButton>
+        <TextField id='emailInput' label="Email" type="email" onChange={(e) => this.emailInputHandler(e)}/>
+        <TextField id='passwordInput' label="Password" type="password" onChange={(e) => this.passwordInputHandler(e)}/>
+        <CustomizedButton className='signInButton' onClick={() => this.signIn()} variant="contained" color="primary"> Sign In</CustomizedButton>
       </div>
     );
   }

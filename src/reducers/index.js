@@ -1,8 +1,7 @@
 import { combineReducers } from 'redux';
-// import tracks from './tracks';
-// import playList from './playlists';
-// import filterTracks from './filterTracks';
+import users from './users';
+import addUserForm from './addUserForm';
 
 export default combineReducers({
-  // tracks, playList, filterTracks
+  users, addUserForm
 })

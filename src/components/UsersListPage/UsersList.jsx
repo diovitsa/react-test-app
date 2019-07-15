@@ -7,38 +7,20 @@ import AddForm from './AddUserForm/AddForm';
 import { DataService } from '../../services/data/DataService';
 import Button from '@material-ui/core/Button/index';
 import { connect } from 'react-redux';
+import { getUsers, deleteUser } from '../../actions/users';
 
 const CustomizedButton = withStyles(ButtonStyles)(Button);
 
 class ListOfUsers extends React.Component {
-  state = {
-    users: []
-  };
 
-  actions = [new GridAction('delete', 'Delete user', (e) => this.deleteUser(e))];
-
-  loadData = () => {
-    return DataService.getUsersList()
-      .then(users => {
-        this.setState({ users: users });
-      })
-      .catch(() => this.props.history.push('/'));
-  };
+  actions = [new GridAction('delete', 'Delete user', (e) => this.props.onDeleteUser(e))];
 
   componentWillMount() {
-    this.loadData();
+    return this.props.loadUsers();
   }
 
   triggerAction = (action, item) => {
     action.execute(item);
-  };
-
-  deleteUser({ _id }) {
-    return DataService.deleteUser(_id).then(() => this.loadData());
-  }
-
-  addUser = (formData) => {
-    return DataService.addUser(formData).then(() => this.loadData());
   };
 
   logOut = () => {
@@ -51,11 +33,10 @@ class ListOfUsers extends React.Component {
     return (
       <div className={root}>
         <div className={upperBlock}>
-          <AddForm onUserAdd={this.addUser}/>
-          <CustomizedButton onClick={() => this.logOut()} variant="contained" color="secondary">Log
-            Out</CustomizedButton>
+          <AddForm />
+          <CustomizedButton onClick={() => this.logOut()} variant="contained" color="secondary">Log Out</CustomizedButton>
         </div>
-        <Grid data={this.state.users}
+        <Grid data={this.props.users}
               actions={this.actions}
               onAction={this.triggerAction}/>
       </div>
@@ -68,12 +49,11 @@ export default connect(
     users: state.users
   }),
   dispatch => ({
-    onAddTrack: (name) => {
-      const payload = {
-        id: Date.now().toString(),
-        name
-      };
-      dispatch({ type: 'ADD_TRACK', payload: payload });
+    loadUsers: () => {
+      dispatch(getUsers());
     },
+    onDeleteUser: ({ _id }) => {
+      dispatch(deleteUser(_id));
+    }
   })
 )(withStyles(ListOfUsersStyles)(ListOfUsers));
